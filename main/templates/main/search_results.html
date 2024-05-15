@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href ="../../../static/styles/mainpage_osn.css" >
+    <title>Результаты поиска</title>
+</head>
+<body>
+
+
+
+    <audio id="myAudio" autoplay >
+
+    </audio>
+
+
+<div class="container">
+<h2 style="font-family: Ubuntu-Regular;font-size: 36px;">
+    Найдено по вашему запросу
+</h2>
+  {% if songs %}
+
+      {% for song in songs %}
+        <div class="music_box">
+            <button class="play-button" data-src="{{ song.audio_file.url }}" style="margin: 5px;background: transparent; border: none;font-family: Ubuntu-Regular;font-size: 16px;padding-left: 10px; "><img  src="../../../static/styles/img/play_button.png" style="width: 25px; height: 20px;float: left;margin-right: 100px;" alt="Play" onclick="playPause()"> {{ song.song_title  }} </button>
+
+
+        </div>
+
+      {% endfor %}
+
+  {% else %}
+    <p>По вашему запросу ничего не найдено.</p>
+  {% endif %}
+</div>
+
+<style>
+
+
+
+
+    .music_box{
+        width: 70%;
+        height: 30px;
+        border-radius: 25px;
+        background: rgb(255, 243, 251);
+        top: 30px;
+        margin: 10px;
+    }
+
+
+
+</style>
+
+
+
+
+
+
+
+
+<div class="box">
+
+
+ <div class="volume-container" style="position: relative; display: inline-block;">
+  <img src="../../../static/styles/img/Громкость1.png" id="volume-icon" style="display: block;">
+  <div id="volume-control" class="volume-bar" style="position: absolute; bottom: 70px; left: 50%; " onclick="setVolume(event)">
+    <div class="progress-volume"></div>
+    <div class="slider"></div>
+  </div>
+</div>
+
+
+
+<script>
+  // Получаем ссылки на изображение громкости и регулятор громкости
+  var volumeIcon = document.getElementById("volume-icon");
+  var volumeControl = document.getElementById("volume-control");
+
+  // Добавляем обработчик события клика по изображению громкости
+  volumeIcon.addEventListener("click", function() {
+    // Если регулятор громкости скрыт, показываем его, иначе скрываем
+    if (volumeControl.style.display === "none") {
+      volumeControl.style.display = "block";
+    } else {
+      volumeControl.style.display = "none";
+    }
+  });
+
+  // Добавляем обработчик события клика вне регулятора громкости для его скрытия
+  document.addEventListener("click", function(event) {
+    if (!volumeControl.contains(event.target) && event.target !== volumeIcon) {
+      volumeControl.style.display = "none";
+    }
+  });
+
+
+
+
+
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var isDragging = false; // Переменная для отслеживания состояния захвата ползунка
+
+    // Получаем ссылки на элементы громкости
+    var volumeControl = document.querySelector(".volume-bar");
+    var progressVolume = volumeControl.querySelector(".progress-volume");
+    var slider = volumeControl.querySelector(".slider");
+
+    // Добавляем обработчики событий для начала и окончания перемещения ползунка
+    slider.addEventListener("mousedown", startDrag);
+    document.addEventListener("mousemove", moveSlider);
+    document.addEventListener("mouseup", stopDrag);
+
+    // Функция для начала перемещения ползунка
+    function startDrag(event) {
+        isDragging = true;
+        moveSlider(event); // Вызываем функцию перемещения сразу при начале перетаскивания
+    }
+
+    // Функция для перемещения ползунка
+    function moveSlider(event) {
+        if (isDragging) {
+            var clickY = event.clientY - volumeControl.getBoundingClientRect().top;
+            var volume = 1 - clickY / volumeControl.offsetHeight;
+            volume = Math.max(0, Math.min(volume, 1));
+
+            progressVolume.style.height = (volume * 100) + "%";
+            slider.style.bottom = (volumeControl.offsetHeight * volume - slider.offsetHeight / 2) + "px";
+
+            var audio = document.getElementById("myAudio");
+            audio.volume = volume;
+        }
+    }
+
+    // Функция для завершения перемещения ползунка
+    function stopDrag(event) {
+        isDragging = false;
+    }
+});
+
+</script>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+        <div class="v337_15">
+
+
+
+<div class="song">
+  <div class="song-info">
+    <!-- Здесь может быть информация о песне, например, название -->
+    {{ song_title }}
+  </div>
+
+  <div class="progress">
+    <div class="progress-value">
+
+    </div>
+
+  </div>
+               <span id="current-time"></span>
+                <span id="duration"></span>
+
+</div>
+
+
+       <div class="audio-player">
+  <div class="music-controls">
+
+    <!-- Кнопки воспроизведения и паузы -->
+
+    <!-- Кнопки "Previous" и "Next" -->
+    <img src="../../../static/styles/img/previous_button.png" style="width: 65px; height: 55px" alt="Previous" onclick="previousSong()">
+
+      <img id="play-pause-button" src="../../../static/styles/img/play_button.png" style="width: 55px; height: 47px" alt="Play" onclick="playPause()">
+
+    <img src="../../../static/styles/img/next_button.png" style="width: 65px; height: 55px" alt="Next" onclick="nextSong()">
+  </div>
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+
+// Получаем ссылки на элементы отображения текущего времени и продолжительности
+
+
+
+var currentTime = 0;
+var duration = 0;
+
+    var buttons = document.querySelectorAll("button");
+
+// Пройдемся по каждой кнопке и добавим обработчики событий
+buttons.forEach(function(button) {
+  // Для кнопки "Previous"
+  if (button.innerText === "Previous") {
+    button.addEventListener("click", function() {
+      previousSong(songs);
+    });
+  }
+  // Для кнопки "Next"
+  else if (button.innerText === "Next") {
+    button.addEventListener("click", function() {
+      nextSong(songs);
+    });
+  }
+});
+var playButtons = document.querySelectorAll(".play-button");
+
+// Добавляем обработчики событий для каждой кнопки воспроизведения
+playButtons.forEach(function(button) {
+  button.addEventListener("click", function() {
+    // Получаем путь к аудиофайлу из атрибута data-src кнопки
+    var audioSrc = this.getAttribute("data-src");
+    // Загружаем и воспроизводим песню
+    loadAndPlaySong(audioSrc);
+  });
+});
+
+// Функция для загрузки и воспроизведения песни по её URL
+var currentSongIndex = 0; // Объявляем переменную currentSongIndex и устанавливаем значение 0
+var songs = [
+        {% for song in songs %}
+            { audio_file: "{{ song.audio_file.url }}", song_title: "{{ song.song_title }}" },
+        {% endfor %}
+    ];
+// Функция для загрузки и воспроизведения текущей песни
+function loadAndPlaySong(audioSrc) {
+  var audio = document.getElementById("myAudio");
+  // Если передан аргумент audioSrc, то устанавливаем новый источник аудиофайла
+  if (audioSrc) {
+    audio.src = audioSrc;
+  }
+  // Воспроизводим песню
+  audio.play();
+
+
+audio.addEventListener("timeupdate", function() {
+
+    var currentTime = audio.currentTime;
+    var duration = audio.duration;
+
+    // Делаем что-то с этой информацией, например, обновляем прогресс-бар
+    var progress = (currentTime / duration) * 100;
+    updateProgressBar(progress);
+
+  });
+}
+
+// Обновление времени воспроизведения и продолжительности песни
+function updateTime() {
+  var currentTimeElement = document.getElementById("current-time");
+  var durationElement = document.getElementById("duration");
+
+  // Получаем текущее время воспроизведения и продолжительность песни
+  var currentTime = audio.currentTime;
+  var duration = audio.duration;
+
+  // Отображаем текущее время в формате ММ:СС
+  var currentMinutes = Math.floor(currentTime / 60);
+  var currentSeconds = Math.floor(currentTime % 60);
+  currentTimeElement.textContent = currentMinutes + ":" + (currentSeconds < 10 ? "" : "") + currentSeconds;
+
+  // Отображаем продолжительность песни в формате ММ:СС
+  var durationMinutes = Math.floor(duration / 60);
+  var durationSeconds = Math.floor(duration % 60);
+  durationElement.textContent = durationMinutes + ":" + (durationSeconds < 10 ? "" : "") + durationSeconds;
+}
+
+// Обновляем время воспроизведения и продолжительность песни каждую секунду
+
+
+// Функция для обновления прогресс-бара
+function updateProgressBar(progress) {
+  var progressBar = document.querySelector(".progress-value");
+  progressBar.style.width = progress + "%";
+}
+
+
+
+
+
+  function playPause() {
+    var audio = document.getElementById("myAudio");
+    var playPauseButton = document.getElementById("play-pause-button");
+
+    if (audio.paused) {
+        audio.play();
+        // Обновляем изображение кнопки на кнопку паузы
+        playPauseButton.src = "../../../static/styles/img/stop_button.png";
+        playPauseButton.alt = "Pause";
+    } else {
+        audio.pause();
+        // Обновляем изображение кнопки на кнопку воспроизведения
+        playPauseButton.src = "../../../static/styles/img/play_button.png";
+        playPauseButton.alt = "Play";
+    }
+}
+
+
+
+    // Функция для загрузки следующей песни
+    function nextSong() {
+        currentSongIndex++;
+        if (currentSongIndex >= songs.length) {
+            currentSongIndex = 0;
+        }
+        // Получаем путь к аудиофайлу следующей песни и передаем его в функцию loadAndPlaySong
+        var audioSrc = songs[currentSongIndex].audio_file;
+        loadAndPlaySong(audioSrc);
+    }
+
+    // Функция для загрузки предыдущей песни
+    function previousSong() {
+        currentSongIndex--;
+        if (currentSongIndex < 0) {
+            currentSongIndex = songs.length - 1;
+        }
+        // Получаем путь к аудиофайлу предыдущей песни и передаем его в функцию loadAndPlaySong
+        var audioSrc = songs[currentSongIndex].audio_file;
+        loadAndPlaySong(audioSrc);
+    }
+
+    // Добавляем прослушиватели событий к кнопкам управления
+    var previousButton = document.querySelector(".previous-song");
+    var nextButton = document.querySelector(".next-song");
+    previousButton.addEventListener("click", previousSong);
+    nextButton.addEventListener("click", nextSong);
+
+
+
+
+
+
+
+
+
+
+    function setVolume(event) {
+  var volumeBar = document.querySelector(".volume-bar");
+  var progressVolume = document.querySelector(".progress-volume");
+  var slider = document.querySelector(".slider");
+
+  var clickY = event.clientY - volumeBar.getBoundingClientRect().top;
+  var volume = 1 - clickY / volumeBar.offsetHeight;
+
+  volume = Math.max(0, Math.min(volume, 1));
+
+  progressVolume.style.height = (volume * 100) + "%";
+  slider.style.bottom = (volumeBar.offsetHeight * volume - slider.offsetHeight / 2) + "px";
+
+  var audio = document.getElementById("myAudio");
+  audio.volume = volume;
+}
+
+
+
+// Получаем ссылки на изображение громкости и регулятор громкости
+
+
+
+
+
+
+setInterval(updateTime, 1000);
+
+
+
+
+</script>
+
+
+        <span class="v337_42">
+            </span>
+        </div>
+
+
+
+
+
+      <div class="search-container" style="position: absolute; top: 2%; left: 2%;">
+
+    <form method="GET" action="{% url 'main:search_results' %}">
+        <input class="search-input" type="text" name="query" placeholder="Поиск">
+        <button class="search-button" type="submit">Искать</button>
+    </form>
+
+</div>
+               <style>
+
+
+
+.box {
+
+    position: absolute;
+    bottom: 15px;
+    right: 170px;
+    z-index: 999999;
+}
+
+
+
+                   #volume-icon {
+  filter: invert(45%) sepia(67%) saturate(2465%) hue-rotate(264deg) brightness(97%) contrast(86%);
+
+}
+
+
+                   .volume-bar {
+  width: 4px; /* Ширина регулятора */
+  height: 170px; /* Высота регулятора */
+  background-color: #120730;
+  border-radius: 10px;
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+}
+
+.progress-volume {
+  width: 100%;
+  background-color: #943ADA;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0; /* Задает начальную точку снизу */
+}
+
+.slider {
+   width: 30px;
+  height: 30px;
+  background-image: url("../../../static/styles/img/Облако.png"); /* Путь к вашему изображению */
+  background-size: cover; /* Растягивает изображение, чтобы заполнить всю площадь */
+  background-repeat: no-repeat; /* Отключает повторение изображения */
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2; /* Помещает ползунок поверх других элементов */
+}
+
+
+
+    .search-container {
+        position: absolute; /* Устанавливаем абсолютное позиционирование для поисковой строки */
+        top: 200px; /* Располагаем поисковую строку относительно верхней границы родительского контейнера */
+        left: 20px; /* Располагаем поисковую строку относительно левой границы родительского контейнера */
+        display: flex;
+        width: 100%; /* Ширина поисковой строки равна 100% */
+        margin-bottom: 20px; /* Отступ снизу для разделения от других элементов */
+}
+    .search-input:focus {
+        outline: none; /* Убираем стандартное выделение */
+        border-color: #E7D1F5; /* Цвет границы при фокусе */
+        box-shadow: 0 0 0 0px #000000; /* Тень при фокусе */
+        opacity: 0.8;
+}
+    .search-input:hover {
+        outline: none;
+        color: #000000; /* Черный цвет текста при наведении */
+}
+    .search-input {
+        flex: 1; /* Занимает всю доступную ширину */
+        width: 429px; /* Ширина поля ввода */
+        height: 30px;
+        padding: 10px; /* Отступ внутри поля ввода */
+        border-radius: 30px; /* Закругленные углы поля ввода */
+        background-color: #FFF3FB;
+        border: 1px solid #ccc; /* Граница поля ввода */
+        margin-right: 10px; /* Отступ справа для разделения от кнопки */
+    }
+
+    .search-button {
+        padding: 10px 20px; /* Отступ внутри кнопки */
+        border: none; /* Убираем границу кнопки */
+        border-radius: 5px; /* Закругленные углы кнопки */
+        background-color: #D59FF6; /* Цвет фона кнопки */
+        color: #000; /* Цвет текста кнопки */
+        cursor: pointer; /* Изменение курсора при наведении */
+    }
+        /* Центрируем результаты поиска */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(50vh - 10px); /* Растягиваем контейнер на высоту видимой части страницы с учетом отступа */
+            margin-top: 50px; /* Отступ сверху */
+
+        }
+
+        /* Стили для списка результатов */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+        }
+
+         .v246_194 {
+  width: 70px;
+  height: 70px;
+  opacity: 1;
+  position: absolute;
+  top: 3%;
+  left: 92%;
+  border-radius: 50%;
+    overflow: hidden; /* Обрезаем изображение */
+    box-shadow: 0 0 0 5px #9248CC;
+}
+.v246_194 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Изображение заполняет контейнер без искажений */
+}
+
+
+
+
+.mini-menu {
+    position: absolute;
+    top: 13%;
+    right: 4%; /* Располагаем меню справа */
+    background: rgba(248, 245, 255, 0.75);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+}
+.mini-menu a {
+    font-size: 24px;
+    font-family: Ubuntu-Regular, serif;
+    color: rgb(18, 7, 48);
+    align-items: center; /* Выравниваем содержимое по вертикали */
+    justify-content: space-between; /* Равномерно распределяем пространство между элементами */
+    padding: 10px 0;
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.mini-menu a:not(:last-child) {
+    border-bottom: 1px solid rgb(148, 58, 218);;
+}
+
+
+               </style>
+
+        <span class="v337_65">FocusWM</span>
+
+
+
+
+<nav>
+
+
+
+                    {% if user.is_authenticated %}
+                         <a  class="v1234" style="right: 10%;top:5%" >{{ user.username }}</a>
+                        <div class="v246_194" id="profileImage">
+                            {% if user.profile.photo %}
+                            <img src="{{ user.profile.photo.url }}" alt="Photo">
+                        {% else %}
+                            <img src="../../../static/styles/img/free-icon-earphone-8669297.png" alt="Photo">
+                            {% endif %}
+                        </div>
+<div id="miniMenu" class="mini-menu">
+
+        <a href="{% url 'main:personal_account' %}">Аккаунт</a> <br> <br>
+        <a href="{% url 'users:logout' %}">Выйти</a>
+
+</div>
+<script>
+
+
+document.getElementById("profileImage").addEventListener("click", function() {
+    var menu = document.getElementById("miniMenu");
+    var computedStyle = window.getComputedStyle(menu);
+    if (computedStyle.display === "none" || computedStyle.display === "") {
+        menu.style.display = "block";
+    } else {
+        menu.style.display = "none";
+    }
+});
+
+
+
+
+
+</script>
+
+
+
+                    {% else %}
+                        <a href="{% url 'users:login_user' %} " class="v337_69" >Вход</a>
+                         <a href="{% url 'users:register' %}" class="v337_691" style="margin-left: 10px;">Регистрация</a>
+
+                    {% endif %}
+
+
+</nav>
+<link rel="stylesheet" href ="../../../static/styles/music_controls.js" >
+<link rel="stylesheet" href="../../../static/styles/progress-bar.css">
+</body>
+</html>
+

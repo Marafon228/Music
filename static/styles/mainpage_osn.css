@@ -1,0 +1,485 @@
+body {
+    background-color: #e6d3ff; /* Задний фон как единый цвет */
+    background-image: url('Frame.png'); /* Картинка посередине */
+    background-size: 50%;
+    background-repeat: no-repeat; /* Отключаем повторение фонового изображения */
+    background-position: center center; /* Выравнивание изображения по центру */
+    background-attachment: fixed; /* Фиксированное позиционирование фонового изображения */
+}
+@font-face {
+    font-family: 'Ubuntu-Regular';
+    src: url('Ubuntu-Regular.ttf') format('truetype');
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Ubuntu-Regular, sans-serif;
+    overflow-x: hidden
+}
+
+#container {
+    width: 1920px; /* Ширина сайта */
+    margin: 0 auto; /* Центрирование по горизонтали */
+}
+
+
+
+.music-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Выравнивание элементов по вертикали */
+    margin-top: 10px; /* Отступ сверху */
+
+}
+
+.music-controls img {
+    width: 50px; /* Ширина кнопок */
+    height: 60px; /* Высота кнопок */
+    cursor: pointer; /* Курсор при наведении на кнопку */
+    margin: 0 1%;
+    z-index: 9999;
+}
+
+
+
+
+.v337_15 {
+    width: 100%;
+    height: 79px;
+    background: rgba(198, 141, 242, 1);
+    opacity: 1;
+    position: absolute;
+    bottom: 0; /* Привязываем к нижнему краю страницы */
+    left: 0;
+    overflow: hidden;
+}
+
+
+
+
+
+
+  .v337_42 {
+    width: 122px;
+    color: rgba(18, 7, 48, 1);
+    position: absolute;
+    bottom: 20px; /* Расположение относительно нижнего края */
+    right: 20px; /* Расположение относительно правого края */
+    font-family: Ubuntu-Regular;
+    font-size: 24px;
+    opacity: 1;
+    text-align: left;
+}
+
+
+ .v337_43 {
+    width: 425px;
+    height: 468px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 88px;
+    right: 20px; /* Отступ от правого края страницы */
+    overflow: hidden;
+}
+
+
+
+    .v337_45 {
+        width: 398px;
+        height: 56px;
+        background: rgba(231, 209, 245, 1);
+        opacity: 1;
+        position: absolute;
+        top: 11px;
+        left: 18px;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        overflow: hidden;
+        z-index: 999;
+    }
+
+    .v337_46 {
+        width: 138px;
+        color: rgba(18, 7, 48, 1);
+        position: absolute;
+        top: 19px;
+        left: 159px;
+        font-family: Ubuntu;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: left;
+        z-index: 9999;
+    }
+
+    .v337_47 {
+        width: 479px;
+        height: 55px;
+        background: url("../images/v337_47.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        opacity: 1;
+        position: absolute;
+        top: 17px;
+        left: 20px;
+        overflow: hidden;
+    }
+
+    .v337_48 {
+        width: 479px;
+        height: 55px;
+        background: rgba(255, 242, 251, 1);
+        opacity: 1;
+        position: absolute;
+        top: 11px;
+        left: 0px;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        overflow: hidden;
+    }
+
+    .v337_49 {
+        width: 162px;
+        color: rgba(0, 0, 0, 1);
+        position: absolute;
+        top: 7px;
+        left: 0px;
+        font-family: Ubuntu;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: center;
+    }
+
+    .v337_50 {
+        width: 144px;
+        color: rgba(0, 0, 0, 1);
+        position: absolute;
+        top: 6px;
+        left: 313px;
+        font-family: Ubuntu;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: center;
+    }
+
+    .v337_51 {
+        width: 159px;
+        color: rgba(0, 0, 0, 1);
+        position: absolute;
+        top: 7px;
+        left: 154px;
+        font-family: Ubuntu;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: center;
+    }
+
+    .v337_52 {
+        width: 429px;
+        height: 55px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        opacity: 1;
+        position: absolute;
+        top: 97px;
+        left: 383px;
+        overflow: hidden;
+    }
+
+
+
+
+    .v337_53 {
+        width: 429px;
+        height: 55px;
+        background: rgba(255, 242, 251, 1);
+        opacity: 1;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        overflow: hidden;
+    }
+
+    .v337_54 {
+        width: 142px;
+        color: rgba(0, 0, 0, 1);
+        position: absolute;
+        top: 7px;
+        left: 0px;
+        font-family: Ubuntu;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: center;
+    }
+
+ .v337_55 {
+    width: 313px;
+    height: 379px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 177px;
+    left: 20px; /* Расположение по левому краю страницы */
+    overflow: hidden;
+}
+
+
+    .v337_56 {
+        width: 313px;
+        height: 379px;
+        background: rgba(212, 158, 246, 1);
+        opacity: 1;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        overflow: hidden;
+    }
+
+    .v337_57 {
+        width: 293px;
+        height: 71px;
+        background: rgba(231, 209, 245, 1);
+        opacity: 1;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        overflow: hidden;
+    }
+
+    .v337_58 {
+        width: 169px;
+        color: rgba(18, 7, 48, 1);
+        position: absolute;
+        top: 24px;
+        left: 75px;
+        font-family: Ubuntu;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: left;
+    }
+
+    .v337_59 {
+        width: 250px;
+        color: rgba(0, 0, 0, 1);
+        position: absolute;
+        top: 114px;
+        left: 34px;
+        font-family: Ubuntu;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: center;
+    }
+
+    .v337_60 {
+        width: 314px;
+        height: 72px;
+        background: rgba(212, 158, 246, 1);
+        opacity: 1;
+        position: absolute;
+        top: 88px;
+        left: 20px;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        overflow: hidden;
+    }
+
+    .v337_61 {
+        width: 162px;
+        color: rgba(0, 0, 0, 1);
+        position: absolute;
+        top: 103px;
+        left: 90px;
+        font-family: Ubuntu;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: center;
+    }
+
+.v337_62 {
+    width: 292px;
+    height: 52px;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    bottom: 10px; /* Расположение внизу страницы */
+    left: 20px; /* Прижимаем к левому краю */
+    overflow: hidden;
+}
+
+
+    .v337_63 {
+        width: 224px;
+        color: rgba(0, 0, 0, 1);
+        position: absolute;
+        top: 12px;
+        left: 68px;
+        font-family: Ubuntu;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: left;
+    }
+
+    .v337_64 {
+        width: 52px;
+        height: 52px;
+        background: rgba(18, 7, 48, 1);
+        opacity: 1;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        overflow: hidden;
+    }
+
+  .v337_65 {
+    width: 150px;
+    color: rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 5%; /* Расположение относительно верхнего края */
+    left: 50%; /* Первоначально размещаем в центре по горизонтали */
+    transform: translateX(-50%); /* Корректируем позицию, чтобы элемент был точно по центру по горизонтали */
+    font-family: Ubuntu;
+    font-weight: Regular;
+    font-size: 30px;
+    opacity: 1;
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+
+  .v337_69 {
+    width: 150px;
+    color: rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 20px; /* Расположение относительно верхнего края */
+    right: 6%; /* Располагаем элемент вправо */
+    font-family: Ubuntu;
+    font-weight: Regular;
+    font-size: 25px;
+    opacity: 1;
+    text-align: right; /* Выравнивание текста по правому краю */
+}
+     .v337_691 {
+    width: 150px;
+    color: rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 20px; /* Расположение относительно верхнего края */
+    right: 10%; /* Располагаем элемент вправо */
+    font-family: Ubuntu;
+    font-weight: Regular;
+    font-size: 25px;
+    opacity: 1;
+    text-align: right; /* Выравнивание текста по правому краю */
+}
+
+
+      .v1234 {
+    width: 150px;
+    color: rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 20px; /* Расположение относительно верхнего края */
+    right: 30%; /* Располагаем элемент вправо */
+    font-family: Ubuntu;
+    font-weight: Regular;
+    font-size: 25px;
+    opacity: 1;
+    text-align: right; /* Выравнивание текста по правому краю */
+}
+     .v12345 {
+    width: 150px;
+    color: rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 20px; /* Расположение относительно верхнего края */
+    right: 10%; /* Располагаем элемент вправо */
+    font-family: Ubuntu;
+    font-weight: Regular;
+    font-size: 25px;
+    opacity: 1;
+    text-align: right; /* Выравнивание текста по правому краю */
+}
+
+.v337_67 {
+    width: 364px;
+    color: rgba(18, 7, 48, 1);
+    position: absolute;
+    top: 191px;
+    right: 2%; /* Используйте right вместо left */
+    font-family: Ubuntu;
+    font-weight: Regular;
+    font-size: 24px;
+    opacity: 1;
+    text-align: center;
+    z-index: 2; /* Установите высокий z-index для этого элемента */
+}
+
+.v337_44 {
+    width: 425px;
+    height: 468px;
+    background: rgba(212, 158, 246, 1);
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    overflow: hidden;
+     /* Установите низкий z-index для этого элемента */
+}
+
+
+ .v337_68 {
+    width: 349px;
+    color: rgba(18, 7, 48, 1);
+    position: absolute;
+    top: 438px;
+    right: 2%; /* Используйте right вместо left */
+    font-family: Ubuntu;
+    font-weight: Regular;
+    font-size: 24px;
+    opacity: 1;
+    text-align: center;
+     z-index: 3;
+}
+
+}
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../static/styles/bacground.css">
+    <title>Успешная регистрация</title>
+    <style>
+
+        h1 {
+    text-align: center; /* Выравнивание текста по центру */
+    margin-top: 10%; /* Отступ сверху */
+                font-size: 55px;
+                font-family: 'Grafier', sans-serif;
+                color: #120731;
+}
+     .center-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.rectangle-58 {
+    width: 579px;
+    height: 220px;
+    background-color: rgba(255, 255, 255, 0.5); /* Полупрозрачный цвет фона */
+    border-radius: 20px; /* Скругление углов */
+    padding: 20px; /* Внутренние отступы */
+}
+
+.rectangle-58 p {
+    font-size: 35px; /* Размер текста */
+    text-align: center; /* Выравнивание текста по центру */
+    font-family: 'Grafier', sans-serif;
+}
+
+
+    </style>
+</head>
+<body>
+<h1>Регистрация завершена</h1>
+   <div class="center-container">
+    <div class="rectangle-58">
+        <p>Вы успешно зарегистрировались, теперь вы можете <a href="{% url 'main:mainpage' %}">перейти на главную</a></p>
+    </div>
+    </div>
+</body>
+</html>

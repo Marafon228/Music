@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../static/styles/bacground.css">
+    <title>Регистрация</title>
+    <h1>Регистрация
+
+    </h1>
+
+    <style>
+            h1 {
+    text-align: center; /* Выравнивание текста по центру */
+    margin-top: 10%; /* Отступ сверху */
+                font-size: 55px;
+                font-family: 'Grafier', sans-serif;
+                color: #120731;
+}
+
+        .register-form {
+
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            z-index: 999;
+            width: 40%; /* Установка ширины формы */
+
+            margin: 0 auto; /* Центрирование формы по горизонтали */
+
+            padding: 40px; /* Добавление внутренних отступов для содержимого формы */
+            background-color: rgba(255, 255, 255, 0.5); /* Цвет фона формы */
+            border-radius: 20px; /* Скругление углов формы */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень формы */
+            input[type="text"] {
+    width: 230px;
+    height: 36px;
+    background: rgba(248, 245, 255, 1);
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+}
+
+}
+    </style>
+</head>
+<body>
+<div class="v214_177">
+    <div class="v230_212">
+        <!-- Форма регистрации -->
+        <form method="post" class="register-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Зарегистрироваться</button>
+            <br>
+            <p> Уже зарегистрированы ?    <a href="{% url 'users:login_user' %} " class="v337_69" >Вход</a>   </p>
+
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href ="../../../static/styles/mainpage_osn.css" >
+    <title>Document</title>
+</head>
+<body>
+    <div class="v337_2">
+        <div class="v337_15">
+            <div class="music-controls">
+                <img src="previous_button.png" alt="Previous" id="previous-song">
+                <img src="play_button.png" alt="Play" id="play-pause" data-state="paused">
+                <img src="stop_button.png" alt="Stop" id="stop" data-state="stopped">
+                <img src="next_button.png" alt="Next" id="next-song">
+            </div>
+            <script src="../../../static/styles/music_controls.js"></script>
+
+        </div>
+        <div class="v337_16">
+            <div class="v337_17">
+                <div class="name"></div>
+                <div class="v337_19">
+                    <div class="name"></div>
+                    <div class="name"></div>
+                </div>
+                <div class="v337_22">
+                    <div class="name"></div>
+                    <div class="name"></div>
+                </div>
+            </div>
+        </div>
+        <div class="v337_25">
+            <div class="v337_26">
+                <div class="v337_27"></div>
+                <div class="v337_28"></div>
+                <div class="v337_29"></div>
+                <div class="v337_30"></div>
+                <div class="v337_31"></div>
+            </div>
+            <div class="v337_32">
+                <div class="v337_33"></div>
+                <div class="v337_34"></div>
+                <div class="v337_35"></div>
+                <div class="v337_36"></div>
+                <div class="v337_37"></div>
+                <div class="v337_38"></div>
+            </div>
+        </div>
+        <div class="v337_39">
+            <div class="name"></div>
+            <div class="name"></div>
+        </div>
+        <span class="v337_42">0:27/2:37</span>
+        <div class="v337_43">
+            <div class="v337_44"></div>
+            <div class="v337_45"></div>
+            <span class="v337_46">Книга дня</span>
+        </div>
+        <div class="v337_47">
+            <div class="v337_48"></div>
+            <span class="v337_49">Город</span>
+            <span class="v337_50">Время</span>
+            <span class="v337_51">Погода</span>
+        </div>
+        <div class="v337_52">
+            <div class="v337_53"></div>
+            <span class="v337_54">Поиск</span>
+        </div>
+        <div class="v337_55">
+            <div class="v337_56"></div>
+            <div class="v337_57"></div>
+            <span class="v337_58">Цитата дня</span>
+            <span class="v337_59">Все, что не делается, все к лучшему!</span>
+        </div>
+        <div class="v337_60"></div>
+        <span class="v337_61">События</span>
+        <div class="v337_62">
+            <span class="v337_63">Название Автор</span>
+            <div class="v337_64"></div>
+        </div>
+        <span class="v337_65">ПРОЕКТ</span>
+
+        <div class="v337_66"></div>
+        <span class="v337_67">Если ты знаешь, что человек никогда не будет твоим, то любить его можно бесконечно долго.</span>
+        <span class="v337_68">“Портрет Дориана Грея” - Оскар Уайльд</span>
+    </div>
+    <div id="current-time"></div>
+    <div id="duration"></div>
+
+
+
+<nav>
+
+    <audio id= 1 controls>
+      <source src="{{ song.audio_file.url }}" type="audio/mpeg">
+
+    </audio>
+
+
+
+
+                    {% if user.is_authenticated %}
+                        <span class="v1234">{{ user.username }}</span>
+                        <a href="{% url 'users:logout' %}" class="v12345" > Выход</a>
+                    {% else %}
+                        <a href="{% url 'users:login_user' %} " class="v337_69" >Вход</a>
+                         <a href="{% url 'users:register' %}" class="v337_691" style="margin-left: 10px;">Регистрация</a>
+
+                    {% endif %}
+
+
+</nav>
+</body>
+</html>
+

@@ -1,0 +1,13 @@
+body {
+    background-color: #e6d3ff; /* Задний фон как единый цвет */
+    background-image: url('Frame.png'); /* Картинка посередине */
+    background-size: 50%;
+    background-repeat: no-repeat; /* Отключаем повторение фонового изображения */
+    background-position: center center; /* Выравнивание изображения по центру */
+    background-attachment: fixed; /* Фиксированное позиционирование фонового изображения */
+}
+@font-face {
+    font-family: 'Grafier';
+    src: url('static/styles/Ubuntu-Regular.ttf') format('truetype');
+}
+
