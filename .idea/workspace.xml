@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60bad15e-6d1f-4ef8-b412-4130ff07efc9" name="Changes" comment="Music2Djangooo11231">
-      <change afterPath="$PROJECT_DIR$/main/forms.py" afterDir="false" />
-    </list>
+    <list default="true" id="60bad15e-6d1f-4ef8-b412-4130ff07efc9" name="Changes" comment="Music2Django" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -213,7 +211,7 @@
       <workItem from="1715608418816" duration="43389000" />
       <workItem from="1715781021205" duration="22309000" />
       <workItem from="1715808135887" duration="317000" />
-      <workItem from="1715808774471" duration="5970000" />
+      <workItem from="1715808774471" duration="6344000" />
     </task>
     <task id="LOCAL-00001" summary="Music2Djangooo">
       <option name="closed" value="true" />
@@ -255,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715511847058</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Music2Django">
+      <option name="closed" value="true" />
+      <created>1715815181851</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715815181851</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +272,8 @@
     <MESSAGE value="Music2Djangooo1" />
     <MESSAGE value="Music2Djangooo11" />
     <MESSAGE value="Music2Djangooo1123" />
-    <option name="LAST_COMMIT_MESSAGE" value="Music2Djangooo1123" />
+    <MESSAGE value="Music2Django" />
+    <option name="LAST_COMMIT_MESSAGE" value="Music2Django" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Music2Django$views.coverage" NAME="views Coverage Results" MODIFIED="1714765421254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
