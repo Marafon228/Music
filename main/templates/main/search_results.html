@@ -18,23 +18,39 @@
 
 
 <div class="container">
-<h2 style="font-family: Ubuntu-Regular;font-size: 36px;">
+<h2 style="font-family: Ubuntu-Regular;font-size: 36px; user-select: none;">
     Найдено по вашему запросу
 </h2>
   {% if songs %}
+    <h3>Найденные песни:</h3>
+    {% for song in songs %}
+        <div class="music_box" style="user-select: none;">
+            <button class="play-button" data-src="{{ song.audio_file.url }}" style="margin: 5px; background: transparent; border: none; font-family: Ubuntu-Regular; font-size: 16px; padding-left: 10px;">
+                <img src="../../../static/styles/img/play_button.png" style="width: 25px; height: 20px; float: left; margin-right: 100px; cursor: pointer; user-select: none;" alt="Play" onclick="playPause()"> {{ song.song_title }}
+            </button>
+        </div>
+    {% endfor %}
+{% endif %}
 
-      {% for song in songs %}
-        <div class="music_box">
-            <button class="play-button" data-src="{{ song.audio_file.url }}" style="margin: 5px;background: transparent; border: none;font-family: Ubuntu-Regular;font-size: 16px;padding-left: 10px; "><img  src="../../../static/styles/img/play_button.png" style="width: 25px; height: 20px;float: left;margin-right: 100px;" alt="Play" onclick="playPause()"> {{ song.song_title  }} </button>
-
+{% if albums %}
+    <h3>Найденные альбомы:</h3>
+    <div class="albums-container" style="display: flex; flex-wrap: nowrap; overflow-x: auto;">
+    {% for album in albums %}
+        <div class="album_box" style="display: inline-block; margin-right: 40px; user-select: none; width: 200px; height: 190px; border-radius: 25px; background: rgb(18, 7, 48);">
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <h4 style="font-size: 24px;font-family: Ubuntu-Regular, sans-serif;color: #e6d3ff;">{{ album.album_title }} - {{ album.artist }}</h4>
+        <!-- Добавьте другие данные альбома, которые вы хотите отобразить -->
+    </div>
 
         </div>
+    {% endfor %}
+</div>
+{% endif %}
 
-      {% endfor %}
-
-  {% else %}
+{% if not songs and not albums %}
     <p>По вашему запросу ничего не найдено.</p>
-  {% endif %}
+{% endif %}
+
 </div>
 
 <style>
@@ -66,7 +82,7 @@
 
 
  <div class="volume-container" style="position: relative; display: inline-block;">
-  <img src="../../../static/styles/img/Громкость1.png" id="volume-icon" style="display: block;">
+  <img src="../../../static/styles/img/Громкость1.png" id="volume-icon" style="display: block;cursor: pointer; user-select: none;">
   <div id="volume-control" class="volume-bar" style="position: absolute; bottom: 70px; left: 50%; " onclick="setVolume(event)">
     <div class="progress-volume"></div>
     <div class="slider"></div>
@@ -183,11 +199,11 @@
     <!-- Кнопки воспроизведения и паузы -->
 
     <!-- Кнопки "Previous" и "Next" -->
-    <img src="../../../static/styles/img/previous_button.png" style="width: 65px; height: 55px" alt="Previous" onclick="previousSong()">
+    <img src="../../../static/styles/img/previous_button.png" style="width: 65px; height: 55px; user-select: none;" alt="Previous" onclick="previousSong()">
 
-      <img id="play-pause-button" src="../../../static/styles/img/play_button.png" style="width: 55px; height: 47px" alt="Play" onclick="playPause()">
+      <img id="play-pause-button" src="../../../static/styles/img/play_button.png" style="width: 55px; height: 47px; user-select: none;" alt="Play" onclick="playPause()">
 
-    <img src="../../../static/styles/img/next_button.png" style="width: 65px; height: 55px" alt="Next" onclick="nextSong()">
+    <img src="../../../static/styles/img/next_button.png" style="width: 65px; height: 55px; user-select: none;" alt="Next" onclick="nextSong()">
   </div>
 </div>
 
@@ -385,8 +401,6 @@ function updateProgressBar(progress) {
 setInterval(updateTime, 1000);
 
 
-
-
 </script>
 
 
@@ -395,14 +409,11 @@ setInterval(updateTime, 1000);
         </div>
 
 
-
-
-
       <div class="search-container" style="position: absolute; top: 2%; left: 2%;">
 
     <form method="GET" action="{% url 'main:search_results' %}">
         <input class="search-input" type="text" name="query" placeholder="Поиск">
-        <button class="search-button" type="submit">Искать</button>
+        <button class="search-button" style="user-select: none;" type="submit">Искать</button>
     </form>
 
 </div>
@@ -502,9 +513,8 @@ setInterval(updateTime, 1000);
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: calc(50vh - 10px); /* Растягиваем контейнер на высоту видимой части страницы с учетом отступа */
-            margin-top: 50px; /* Отступ сверху */
+            justify-content: stretch;
+            margin-top: 90px; /* Отступ сверху */
 
         }
 
@@ -537,8 +547,6 @@ setInterval(updateTime, 1000);
 }
 
 
-
-
 .mini-menu {
     position: absolute;
     top: 13%;
@@ -566,7 +574,8 @@ setInterval(updateTime, 1000);
 
                </style>
 
-        <span class="v337_65">FocusWM</span>
+       <a class="v337_65" href="{% url 'main:mainpage' %}" style="user-select: none; text-decoration: none;">FocusWM</a>
+
 
 
 
@@ -602,8 +611,6 @@ document.getElementById("profileImage").addEventListener("click", function() {
         menu.style.display = "none";
     }
 });
-
-
 
 
 

@@ -109,8 +109,7 @@ body {
         position: absolute;
         top: 19px;
         left: 159px;
-        font-family: Ubuntu;
-        font-weight: Regular;
+        font-family: Ubuntu-Regular, sans-serif;
         font-size: 24px;
         opacity: 1;
         text-align: left;
@@ -120,7 +119,6 @@ body {
     .v337_47 {
         width: 479px;
         height: 55px;
-        background: url("../images/v337_47.png");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -152,8 +150,7 @@ body {
         position: absolute;
         top: 7px;
         left: 0px;
-        font-family: Ubuntu;
-        font-weight: Regular;
+        font-family: Ubuntu-Regular, sans-serif;
         font-size: 24px;
         opacity: 1;
         text-align: center;
@@ -165,8 +162,7 @@ body {
         position: absolute;
         top: 6px;
         left: 313px;
-        font-family: Ubuntu;
-        font-weight: Regular;
+        font-family: Ubuntu-Regular, sans-serif;
         font-size: 24px;
         opacity: 1;
         text-align: center;
@@ -178,8 +174,7 @@ body {
         position: absolute;
         top: 7px;
         left: 154px;
-        font-family: Ubuntu;
-        font-weight: Regular;
+        font-family: Ubuntu-Regular, sans-serif;
         font-size: 24px;
         opacity: 1;
         text-align: center;
@@ -222,8 +217,7 @@ body {
         position: absolute;
         top: 7px;
         left: 0px;
-        font-family: Ubuntu;
-        font-weight: Regular;
+        font-family: Ubuntu-Regular, sans-serif;
         font-size: 24px;
         opacity: 1;
         text-align: center;
@@ -279,8 +273,7 @@ body {
         position: absolute;
         top: 24px;
         left: 75px;
-        font-family: Ubuntu;
-        font-weight: Regular;
+        font-family: Ubuntu-Regular, sans-serif;
         font-size: 24px;
         opacity: 1;
         text-align: left;
@@ -292,8 +285,7 @@ body {
         position: absolute;
         top: 114px;
         left: 34px;
-        font-family: Ubuntu;
-        font-weight: Regular;
+        font-family: Ubuntu-Regular, sans-serif;
         font-size: 24px;
         opacity: 1;
         text-align: center;
@@ -320,8 +312,7 @@ body {
         position: absolute;
         top: 103px;
         left: 90px;
-        font-family: Ubuntu;
-        font-weight: Regular;
+        font-family:Ubuntu-Regular, sans-serif;
         font-size: 24px;
         opacity: 1;
         text-align: center;
@@ -348,8 +339,7 @@ body {
         position: absolute;
         top: 12px;
         left: 68px;
-        font-family: Ubuntu;
-        font-weight: Regular;
+        font-family: Ubuntu-Regular, sans-serif;
         font-size: 24px;
         opacity: 1;
         text-align: left;
@@ -377,8 +367,7 @@ body {
     top: 5%; /* Расположение относительно верхнего края */
     left: 50%; /* Первоначально размещаем в центре по горизонтали */
     transform: translateX(-50%); /* Корректируем позицию, чтобы элемент был точно по центру по горизонтали */
-    font-family: Ubuntu;
-    font-weight: Regular;
+    font-family: Ubuntu-Regular, sans-serif;
     font-size: 30px;
     opacity: 1;
     text-align: center; /* Выравнивание текста по центру */
@@ -391,8 +380,7 @@ body {
     position: absolute;
     top: 20px; /* Расположение относительно верхнего края */
     right: 6%; /* Располагаем элемент вправо */
-    font-family: Ubuntu;
-    font-weight: Regular;
+    font-family: Ubuntu-Regular, sans-serif;
     font-size: 25px;
     opacity: 1;
     text-align: right; /* Выравнивание текста по правому краю */
@@ -403,8 +391,7 @@ body {
     position: absolute;
     top: 20px; /* Расположение относительно верхнего края */
     right: 10%; /* Располагаем элемент вправо */
-    font-family: Ubuntu;
-    font-weight: Regular;
+    font-family: Ubuntu-Regular, sans-serif;
     font-size: 25px;
     opacity: 1;
     text-align: right; /* Выравнивание текста по правому краю */
@@ -417,8 +404,7 @@ body {
     position: absolute;
     top: 20px; /* Расположение относительно верхнего края */
     right: 30%; /* Располагаем элемент вправо */
-    font-family: Ubuntu;
-    font-weight: Regular;
+    font-family: Ubuntu-Regular, sans-serif;
     font-size: 25px;
     opacity: 1;
     text-align: right; /* Выравнивание текста по правому краю */
@@ -429,8 +415,7 @@ body {
     position: absolute;
     top: 20px; /* Расположение относительно верхнего края */
     right: 10%; /* Располагаем элемент вправо */
-    font-family: Ubuntu;
-    font-weight: Regular;
+    font-family: Ubuntu-Regular, sans-serif;
     font-size: 25px;
     opacity: 1;
     text-align: right; /* Выравнивание текста по правому краю */
@@ -442,8 +427,7 @@ body {
     position: absolute;
     top: 191px;
     right: 2%; /* Используйте right вместо left */
-    font-family: Ubuntu;
-    font-weight: Regular;
+    font-family: Ubuntu-Regular, sans-serif;
     font-size: 24px;
     opacity: 1;
     text-align: center;
@@ -473,13 +457,12 @@ body {
     position: absolute;
     top: 438px;
     right: 2%; /* Используйте right вместо left */
-    font-family: Ubuntu;
-    font-weight: Regular;
+     font-family: Ubuntu-Regular, sans-serif;
     font-size: 24px;
     opacity: 1;
     text-align: center;
      z-index: 3;
 }
 
-}
+
 

@@ -3,7 +3,7 @@ from typing import Dict
 from django.shortcuts import render, redirect
 from django.urls import path
 from django.http import FileResponse
-from music.models import Song
+from music.models import Song,Album
 from music.views import get_audio  # Импортируем представление get_audio из приложения music
 from . import views
 from .forms import PhotoUploadForm
@@ -31,7 +31,10 @@ def mainpage(request):
 def search_results(request):
     query = request.GET.get('query')
     songs = Song.objects.filter(song_title__icontains=query)
-    return render(request, 'main/search_results.html', {'songs': songs, 'query': query})
+    albums = Album.objects.filter(album_title__icontains=query)
+    songs = songs[:5]
+    albums = albums[:5]
+    return render(request, 'main/search_results.html', {'songs': songs, 'albums': albums, 'query': query})
 
 
 def personal_account(request):
@@ -55,7 +58,8 @@ def current_time(request):
     return JsonResponse({'current_time': current_time})
 
 
-
+def events(request):
+    return render(request, 'main/events.html')
 
 
 

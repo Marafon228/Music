@@ -1,38 +1,11 @@
 <!DOCTYPE html>
-{% load static %}
-<html>
+<html lang="en">
 <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href ="../../../static/styles/mainpage_osn.css" >
-    <title>Главная страница</title>
+    <meta charset="UTF-8">
+    <title>События</title>
+     <link rel="stylesheet" href ="../../../static/styles/mainpage_osn.css" >
 </head>
 <body>
-<div class="mainpage1">
-
-
-    <audio id="myAudio" autoplay >
-
-    </audio>
-
-
-<div class="container">
-<h2 style="font-family: Ubuntu-Regular;font-size: 36px;">
-</h2>
-  {% if songs %}
-
-      {% for song in songs %}
-        <div class="music_box">
-            <button class="play-button" data-src="{{ song.audio_file.url }}" style="margin: 5px;background: transparent; border: none;font-family: Ubuntu-Regular;font-size: 16px;padding-left: 10px; "><img  src="../../../static/styles/img/play_button.png" style="width: 25px; height: 20px;float: left;margin-right: 100px;" alt="Play" onclick="playPause()"> {{ song.song_title  }} </button>
-
-
-        </div>
-
-      {% endfor %}
-
-  {% else %}
-
-  {% endif %}
 </div>
 
 <style>
@@ -465,17 +438,196 @@ setInterval(updateTime, 1000);
             <div class="name"></div>
         </div>
         <span class="v337_42"></span>
-        <div class="v337_43">
-            <div class="v337_44">
 
 
-            </div>
-            <div class="v337_45">
 
 
-            </div>
-            <span class="v337_46" style=" user-select: none;">Книга дня</span>
-        </div>
+
+           <div class="v222222 textarea-container" style="font-size: 17px; font-family: Ubuntu-Regular, sans-serif; text-align: center; user-select: none; line-height: 1.5;">
+    <h2>Май 2024</h2>
+    <table border="1" style="margin: auto; width: 50%;background:#e6d3ff;">
+       <tbody>
+           <tr>
+                <td></td>
+                <td></td>
+                <td >1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td style="background-color: palevioletred;"> 17</td>
+                <td>18</td>
+                <td>19</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td>31</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+           <div class="v333333 textarea-container" style="font-size: 24px; font-family: Ubuntu-Regular, sans-serif; text-align: center; user-select: none; line-height: 2.5;">
+    Ближайшее событие
+    <textarea id="userInput1" style="outline: none; border: none; background:#e6d3ff ; text-align: center; width: 300px; height: 160px; border-radius: 25px; font-size: 16px; font-family: Ubuntu-Regular, sans-serif;  word-wrap: break-word;">Ваш текст</textarea>
+</div>
+
+            <div class="v444444 textarea-container" style="font-size: 24px; font-family: Ubuntu-Regular, sans-serif; text-align: center; user-select: none; line-height: 2.5;">
+    Ближайшее событие
+    <textarea id="userInput2" style="outline: none; border: none; background:#e6d3ff ; text-align: center; width: 300px; height: 160px; border-radius: 25px; font-size: 16px; font-family: Ubuntu-Regular, sans-serif;  word-wrap: break-word;">Ваш текст</textarea>
+</div>
+            <div class="v555555 textarea-container" style="font-size: 24px; font-family: Ubuntu-Regular, sans-serif; text-align: center; user-select: none; line-height: 2.5;">
+    Ближайшее событие
+    <textarea id="userInput3" style="outline: none; border: none; background:#e6d3ff ; text-align: center; width: 300px; height: 160px; border-radius: 25px; font-size: 16px; font-family: Ubuntu-Regular, sans-serif;  word-wrap: break-word;">Ваш текст</textarea>
+</div>
+            <div class="v666666 textarea-container" style="font-size: 24px; font-family: Ubuntu-Regular, sans-serif; text-align: center; user-select: none; line-height: 2.5;">
+    Ближайшее событие
+    <textarea id="userInput4" style="outline: none; border: none; background:#e6d3ff ; text-align: center; width: 300px; height: 160px; border-radius: 25px; font-size: 16px; font-family: Ubuntu-Regular, sans-serif;  word-wrap: break-word;">Ваш текст</textarea>
+</div>
+
+
+<script>
+var textAreas = document.querySelectorAll('.textarea-container textarea');
+
+textAreas.forEach(function(textArea) {
+    // Проверяем, есть ли сохраненное значение в localStorage
+    var savedText = localStorage.getItem('userInputText-' + textArea.id);
+
+    // Если есть, устанавливаем сохраненное значение в поле ввода
+    if (savedText) {
+        textArea.value = savedText;
+    }
+
+    // Слушаем событие ввода текста и сохраняем его в localStorage
+    textArea.addEventListener('input', function() {
+        localStorage.setItem('userInputText-' + textArea.id, textArea.value);
+    });
+});
+</script>
+
+
+
+<style>
+
+     .v222222 {
+    width: 425px;
+    height: 325px;
+    background: rgba(212, 158, 246, 1);
+    opacity: 1;
+    position: absolute;
+    top: 35%;
+    left: 7%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    overflow: hidden;
+     /* Установите низкий z-index для этого элемента */
+}
+
+    .v333333 {
+    width: 355px;
+    height: 255px;
+    background: rgba(212, 158, 246, 1);
+    opacity: 1;
+    position: absolute;
+    top: 20%;
+    left: 65%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    overflow: hidden;
+     /* Установите низкий z-index для этого элемента */
+}
+
+
+     .v444444 {
+    width: 355px;
+    height: 255px;
+    background: rgba(212, 158, 246, 1);
+    opacity: 1;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    overflow: hidden;
+     /* Установите низкий z-index для этого элемента */
+}
+
+      .v555555 {
+    width: 355px;
+    height: 255px;
+    background: rgba(212, 158, 246, 1);
+    opacity: 1;
+    position: absolute;
+    top: 55%;
+    left: 65%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    overflow: hidden;
+     /* Установите низкий z-index для этого элемента */
+}
+       .v666666 {
+    width: 355px;
+    height: 255px;
+    background: rgba(212, 158, 246, 1);
+    opacity: 1;
+    position: absolute;
+    top: 55%;
+    left: 40%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    overflow: hidden;
+     /* Установите низкий z-index для этого элемента */
+}
+
+
+
+</style>
+
+
+
         <div class="v337_47">
             <div class="v337_48"></div>
          <div class="city-dropdown" style="position: relative;">
@@ -498,14 +650,14 @@ setInterval(updateTime, 1000);
 
 
         </div>
-<div class="1110000" id="time-container" style=" position: absolute;width: 283px; height: 46px; left: 530px; top: 25px; border-radius: 25px; background: rgb(255, 243, 251);display: none;text-align: center; line-height: 46px;">
-     {% if current_time %}
-        <a style="font-family: Ubuntu-Regular, sans-serif;font-size: 20px; user-select: none;" id="current-time">Текущее время: {{ current_time }}</a>
+<div class="1110000" id="time-container" style="position: absolute; width: 283px; height: 46px; left: 530px; top: 25px; border-radius: 25px; background: rgb(255, 243, 251); display: none; text-align: center; line-height: 15px;">
+    {% if current_time %}
+        <a style="font-family: Ubuntu-Regular, sans-serif; font-size: 20px; user-select: none;" id="current-time">Текущее время: {{ current_time }}</a>
     {% else %}
-        <h3 id="current-time" style=" user-select: none;">Время не определено</h3>
+        <h3 id="current-time" style="user-select: none;">Время не определено</h3>
     {% endif %}
-
 </div>
+
 <script>
 
 
@@ -689,96 +841,24 @@ setInterval(updateTime, 1000);
 
 
 
-        <div class="v337_55">
-            <div class="v337_56"></div>
-            <div class="v337_57"></div>
-            <span class="v337_58" style=" user-select: none;">Цитата дня</span>
-           <span id="random-text" class="v337_59">Все, что не делается, все к лучшему!</span>
-        </div>
-        <div class="v337_60" >
-
-
-        </div>
-        <a class="v337_61" style="user-select: none;text-decoration: none;" href="{% url 'main:events' %}">События</a>
         <div class="v337_62">
             <span class="v337_63">Название Автор</span>
             <div class="v337_64"></div>
         </div>
-          <a class="v337_65" href="{% url 'main:mainpage' %}" style="user-select: none; text-decoration: none;">FocusWM</a>
-
-        <div class="v337_66"></div>
-        <span id="randomQuote" class="v337_67">
-  Если ты знаешь, что человек никогда не будет твоим, то любить его можно бесконечно долго.
-            <br>
-            <br>“Портрет Дориана Грея” - Оскар Уайльд
+         <a class="v337_65" href="{% url 'main:mainpage' %}" style="user-select: none; text-decoration: none;">FocusWM</a>
 
 </span>
         <span class="v337_68"></span>
     </div>
     <div id="current-time"></div>
     <div id="duration"></div>
-  <script>
-    // Массив цитат
-   var quotesAndAuthors = [
-  { quote: "Если ты знаешь, что человек никогда не будет твоим, то любить его можно бесконечно долго", author: "“Портрет Дориана Грея” - Оскар Уайльд" },
-  { quote: "Проще расстаться с человеком, чем с иллюзиями на его счёт", author: "Марта Кетро 'Улыбайся всегда, любовь моя' " },
-       { quote: "Сильные люди не любят свидетелей своей слабости", author: "Маргарет Митчелл 'Унесённые ветром' " },
-       { quote: "Мысленно сменить зиму на весну и влюбиться", author: "Эльчин Сафарли '...нет воспоминаний без тебя' " },
-       { quote: "А что особенно подозрительно – что ничего тут подозрительного нету", author: "Евгений Клюев 'Андерманир штук' " },
-       { quote: "Все мы родом из детства", author: "Антуан де Сент-Экзюпери 'Маленький принц' " },
-       { quote: "У людей теперь нет времени друг для друга", author: "Рэй Брэдбери '451 градус по Фаренгейту' " },
-  // Другие цитаты и авторы...
-];
 
-// Генерация случайного индекса
-var randomIndex = Math.floor(Math.random() * quotesAndAuthors.length);
-
-// Получение случайной цитаты и ее автора
-var randomQuote = quotesAndAuthors[randomIndex].quote;
-var randomAuthor = quotesAndAuthors[randomIndex].author;
-
-// Вставка случайной цитаты и автора в элемент
-var randomQuoteElement = document.getElementById("randomQuote");
-randomQuoteElement.innerHTML = randomQuote + "<br><br>– " + randomAuthor;
-
-  </script>
     <style>
   .v337_67::first-line {
     text-indent: 40px; /* Здесь можно задать нужный размер отступа */
   }
 </style>
-<script>
 
-     // Массив со случайными предложениями
-  var randomSentences = [
-    "Все, что не делается, все к лучшему!",
-    "Будьте внимательны к своим мыслям — они начало поступков",
-    "Сегодня - лучший день для новых начинаний!",
-    "Лучше сделать что-то, чем ничего не делать!",
-    "Улыбайтесь - и мир улыбнется вам в ответ!",
-      "Никогда не смотри назад",
-      "Будь верен тому, кто верен тебе",
-      "Потерянное время никогда не вернётся",
-      "Помни, кто ты есть",
-      "Каждый прошел через что-то, что изменило его",
-      "Что делать с ошибкой: признать, принять, извлечь урок, забыть"
-    // Добавьте свои случайные предложения
-  ];
-
-  // Функция для выбора случайного предложения из массива
-  function getRandomSentence() {
-    var randomIndex = Math.floor(Math.random() * randomSentences.length);
-    return randomSentences[randomIndex];
-  }
-
-  // Обновление текста на странице при загрузке
-  window.onload = function() {
-    var randomTextElement = document.getElementById("random-text");
-    randomTextElement.textContent = getRandomSentence();
-  };
-
-
-</script>
 
 
 <nav>
@@ -890,18 +970,4 @@ document.getElementById("profileImage").addEventListener("click", function() {
 </body>
 
 
-
-<style>
-.mainpage1{
-    max-width: 1920px; /* Задайте максимальную ширину по вашему усмотрению */
-    margin: 0 auto;
-}
-
-#moscow-time {
-    position: absolute;
-    left: 74%; /* Помещаем элемент по центру по горизонтали */
-    bottom: 5px; /* Устанавливаем расстояние от нижнего края */
-}
-</style>
 </html>
-
