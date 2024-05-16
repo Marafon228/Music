@@ -93,6 +93,46 @@
       volumeControl.style.display = "none";
     }
   });
+  document.addEventListener("DOMContentLoaded", function() {
+    var isDragging = false; // Переменная для отслеживания состояния захвата ползунка
+
+    // Получаем ссылки на элементы громкости
+    var volumeControl = document.querySelector(".volume-bar");
+    var progressVolume = volumeControl.querySelector(".progress-volume");
+    var slider = volumeControl.querySelector(".slider");
+
+    // Добавляем обработчики событий для начала и окончания перемещения ползунка
+    slider.addEventListener("mousedown", startDrag);
+    document.addEventListener("mousemove", moveSlider);
+    document.addEventListener("mouseup", stopDrag);
+
+    // Функция для начала перемещения ползунка
+    function startDrag(event) {
+        isDragging = true;
+        moveSlider(event); // Вызываем функцию перемещения сразу при начале перетаскивания
+    }
+
+    // Функция для перемещения ползунка
+    function moveSlider(event) {
+        if (isDragging) {
+            var clickY = event.clientY - volumeControl.getBoundingClientRect().top;
+            var volume = 1 - clickY / volumeControl.offsetHeight;
+            volume = Math.max(0, Math.min(volume, 1));
+
+            progressVolume.style.height = (volume * 100) + "%";
+            slider.style.bottom = (volumeControl.offsetHeight * volume - slider.offsetHeight / 2) + "px";
+
+            var audio = document.getElementById("myAudio");
+            audio.volume = volume;
+        }
+    }
+
+    // Функция для завершения перемещения ползунка
+    function stopDrag(event) {
+        isDragging = false;
+    }
+});
+
 </script>
 
 
@@ -426,16 +466,53 @@ setInterval(updateTime, 1000);
         </div>
         <span class="v337_42"></span>
         <div class="v337_43">
-            <div class="v337_44"></div>
-            <div class="v337_45"></div>
+            <div class="v337_44">
+
+
+            </div>
+            <div class="v337_45">
+
+
+            </div>
             <span class="v337_46">Книга дня</span>
         </div>
         <div class="v337_47">
             <div class="v337_48"></div>
             <span class="v337_49">Город</span>
-            <span class="v337_50">Время</span>
-            <span class="v337_51">Погода</span>
+            <span  class="v337_50">Время
+
+
+
+            </span>
+
+           <span class="v337_51"><a href="https://yandex.ru/pogoda?via=hl" target="_blank" style=" text-decoration: none;font-family: Ubuntu-Regular, sans-serif">Погода</a></span>
+
+
+
         </div>
+
+<div class="1110000" style="position: absolute;width: 283px; height: 166px; left: 430px; top: 262px; bottom: 25px;
+background: rgb(248, 245, 255);">
+ <form method="post" style="z-index: 9999999999">
+    {% csrf_token %}
+    {{ form.as_p }}
+        <button type="submit">Установить время</button>
+</form>
+
+
+    {% if form.errors %}
+    <ul>
+    {% for field in form %}
+        {% for error in field.errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    {% endfor %}
+    </ul>
+{% endif %}
+
+</div>
+
+</div>
 
 
 <div class="search-container">
@@ -449,7 +526,6 @@ setInterval(updateTime, 1000);
 
 
     <style>
-
 
 .box {
 
@@ -743,6 +819,12 @@ document.getElementById("profileImage").addEventListener("click", function() {
 .mainpage1{
     max-width: 1920px; /* Задайте максимальную ширину по вашему усмотрению */
     margin: 0 auto;
+}
+
+#moscow-time {
+    position: absolute;
+    left: 74%; /* Помещаем элемент по центру по горизонтали */
+    bottom: 5px; /* Устанавливаем расстояние от нижнего края */
 }
 </style>
 </html>

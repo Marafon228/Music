@@ -40,3 +40,18 @@ def personal_account(request):
         form = PhotoUploadForm()
     return render(request, 'main/personal_account.html', {'form': form})
 
+
+
+from .forms import TimeForm
+
+def my_view(request):
+    if request.method == 'POST':
+        form = TimeForm(request.POST)
+    else:
+        form = TimeForm(request.POST)
+
+    return render(request, 'main/mainpage.html', {'form': form})
+
+
+
+
