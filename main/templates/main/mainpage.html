@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+{% load static %}
 <html>
 <head>
         <meta charset="utf-8">
@@ -157,7 +157,7 @@
     </div>
 
   </div>
-               <span id="current-time"></span>
+
                 <span id="duration"></span>
 
 </div>
@@ -474,43 +474,53 @@ setInterval(updateTime, 1000);
 
 
             </div>
-            <span class="v337_46">Книга дня</span>
+            <span class="v337_46" style=" user-select: none;">Книга дня</span>
         </div>
         <div class="v337_47">
             <div class="v337_48"></div>
-            <span class="v337_49">Город</span>
-            <span  class="v337_50">Время
+            <span class="v337_49" style=" user-select: none;margin-top: 8px;">Город</span>
+            <span  class="v337_50" style=" user-select: none;margin-top: 8px;" onclick="toggleTimeDiv()">Время </span>
 
-
-
-            </span>
-
-           <span class="v337_51"><a href="https://yandex.ru/pogoda?via=hl" target="_blank" style=" text-decoration: none;font-family: Ubuntu-Regular, sans-serif">Погода</a></span>
+           <span class="v337_51" style="margin-top: 8px;"><a href="https://yandex.ru/pogoda?via=hl" target="_blank" style=" text-decoration: none;font-family: Ubuntu-Regular, sans-serif;  user-select: none;">Погода</a></span>
 
 
 
         </div>
-
-<div class="1110000" style="position: absolute;width: 283px; height: 166px; left: 430px; top: 262px; bottom: 25px;
-background: rgb(248, 245, 255);">
- <form method="post" style="z-index: 9999999999">
-    {% csrf_token %}
-    {{ form.as_p }}
-        <button type="submit">Установить время</button>
-</form>
-
-
-    {% if form.errors %}
-    <ul>
-    {% for field in form %}
-        {% for error in field.errors %}
-            <li>{{ error }}</li>
-        {% endfor %}
-    {% endfor %}
-    </ul>
-{% endif %}
+<div class="1110000" id="time-container" style=" position: absolute;width: 283px; height: 46px; left: 530px; top: 25px; border-radius: 25px; background: rgb(255, 243, 251);display: none;text-align: center; line-height: 46px;">
+     {% if current_time %}
+        <a style="font-family: Ubuntu-Regular, sans-serif;font-size: 20px; user-select: none;" id="current-time">Текущее время: {{ current_time }}</a>
+    {% else %}
+        <h3 id="current-time" style=" user-select: none;">Время не определено</h3>
+    {% endif %}
 
 </div>
+<script>
+   function toggleTimeDiv() {
+        var timeDiv = document.getElementById('time-container');
+        if (timeDiv.style.display === 'none') {
+            timeDiv.style.display = 'block';
+        } else {
+            timeDiv.style.display = 'none';
+        }
+    }
+    function updateTime() {
+        var currentTimeElement = document.getElementById('current-time');
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/current-time/', true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                var formattedTime = response.current_time;
+                currentTimeElement.textContent = 'Текущее время: ' + formattedTime;
+            }
+        };
+        xhr.send();
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime();
+</script>
+
 
 </div>
 
@@ -797,7 +807,6 @@ document.getElementById("profileImage").addEventListener("click", function() {
 
 
 </script>
-
 
 
                     {% else %}

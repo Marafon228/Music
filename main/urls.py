@@ -8,6 +8,7 @@ from .views import search_results
 app_name = 'main'
 urlpatterns = [
     path('mainpage/', views.mainpage, name='mainpage'),
+    path('current-time/', views.current_time, name='current_time'),
     path('input/', input),
     path('home/', home),
     path('get-audio/<int:audio_id>/', views.get_audio, name='get_audio'),

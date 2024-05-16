@@ -18,9 +18,15 @@ def input(request):
 from django.shortcuts import render
 
 
+
+import datetime
+
+
 def mainpage(request):
     songs = Song.objects.all()
-    return render(request, 'main/mainpage.html', )
+    current_time = datetime.datetime.now()
+    return render(request, 'main/mainpage.html', {'current_time': current_time})
+
 
 def search_results(request):
     query = request.GET.get('query')
@@ -41,16 +47,14 @@ def personal_account(request):
     return render(request, 'main/personal_account.html', {'form': form})
 
 
+from django.http import JsonResponse
 
-from .forms import TimeForm
+def current_time(request):
+    import datetime
+    current_time = datetime.datetime.now().strftime('%H:%M:%S')  # Форматируем время
+    return JsonResponse({'current_time': current_time})
 
-def my_view(request):
-    if request.method == 'POST':
-        form = TimeForm(request.POST)
-    else:
-        form = TimeForm(request.POST)
 
-    return render(request, 'main/mainpage.html', {'form': form})
 
 
 

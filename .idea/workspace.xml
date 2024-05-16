@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="60bad15e-6d1f-4ef8-b412-4130ff07efc9" name="Changes" comment="Music2Django">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Music2Django/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Music2Django/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/home00.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main/templates/main/mainpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/mainpage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -217,7 +220,9 @@
       <workItem from="1715608418816" duration="43389000" />
       <workItem from="1715781021205" duration="22309000" />
       <workItem from="1715808135887" duration="317000" />
-      <workItem from="1715808774471" duration="11006000" />
+      <workItem from="1715808774471" duration="12323000" />
+      <workItem from="1715859871581" duration="6762000" />
+      <workItem from="1715866953065" duration="6338000" />
     </task>
     <task id="LOCAL-00001" summary="Music2Djangooo">
       <option name="closed" value="true" />
@@ -275,7 +280,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715815269300</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Music2Django">
+      <option name="closed" value="true" />
+      <created>1715820246470</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715820246470</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

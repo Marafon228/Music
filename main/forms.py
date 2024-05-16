@@ -8,14 +8,11 @@ class PhotoUploadForm(forms.ModelForm):
 
 
 # forms.py
-from django import forms
-
-from django import forms
 
 from django import forms
 
 class TimeForm(forms.Form):
-    time = forms.TimeField(label='Выберите время', widget=forms.TimeInput(attrs={'type': 'time'}))
+    chosen_time = forms.DateTimeField(label='Выберите время', required=False)
 
 
 
