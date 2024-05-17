@@ -23,9 +23,11 @@ import datetime
 
 
 def mainpage(request):
-    songs = Song.objects.all()
+    query = request.GET.get('query')
+    songs = []
+    albums = []
     current_time = datetime.datetime.now()
-    return render(request, 'main/mainpage.html', {'current_time': current_time})
+    return render(request, 'main/mainpage.html', {'songs': songs, 'albums': albums, 'query': query,'current_time': current_time})
 
 
 def search_results(request):

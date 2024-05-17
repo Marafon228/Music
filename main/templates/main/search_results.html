@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-
+{% load static %}
 <html>
 
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href ="../../../static/styles/mainpage_osn.css" >
+
     <title>Результаты поиска</title>
 </head>
 <body>
 
 
 
-    <audio id="myAudio" autoplay >
-
+    <audio id="myAudio"  >
+ {% for song in songs %}
+        <source data-src="{{ song.audio_file.url }}?query={{ request.GET.query }}" type="audio/mpeg">
+    {% endfor %}
     </audio>
+   <script src="{% static 'styles/player.js' %}"></script>
 
 
 <div class="container">
@@ -201,7 +205,7 @@
     <!-- Кнопки "Previous" и "Next" -->
     <img src="../../../static/styles/img/previous_button.png" style="width: 65px; height: 55px; user-select: none;" alt="Previous" onclick="previousSong()">
 
-      <img id="play-pause-button" src="../../../static/styles/img/play_button.png" style="width: 55px; height: 47px; user-select: none;" alt="Play" onclick="playPause()">
+      <img id="play-pause-button" src="../../../static/styles/img/play_button.png" style="width: 55px; height: 47px; user-select: none;" alt="Play" onclick="playPause()" >
 
     <img src="../../../static/styles/img/next_button.png" style="width: 65px; height: 55px; user-select: none;" alt="Next" onclick="nextSong()">
   </div>
@@ -626,7 +630,7 @@ document.getElementById("profileImage").addEventListener("click", function() {
 
 
 </nav>
-<link rel="stylesheet" href ="../../../static/styles/music_controls.js" >
+<link rel="stylesheet" href ="../../../static/styles/player.js" >
 <link rel="stylesheet" href="../../../static/styles/progress-bar.css">
 </body>
 </html>

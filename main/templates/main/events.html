@@ -1,11 +1,21 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>События</title>
      <link rel="stylesheet" href ="../../../static/styles/mainpage_osn.css" >
+
 </head>
 <body>
+
+
+ <audio id="myAudio"  >
+ {% for song in songs %}
+        <source data-src="{{ song.audio_file.url }}" type="audio/mpeg">
+    {% endfor %}
+    </audio>
+<script src="{% static 'styles/player.js' %}"></script>
 </div>
 
 <style>
@@ -126,7 +136,27 @@
 
   <div class="progress">
     <div class="progress-value">
+<style>
+    .progress {
+  background: #450F58;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  display: flex;
+  height: 10px;
+  width: 100%;
+}
 
+.progress-value {
+  animation: load 3s normal forwards;
+  box-shadow: 0 10px 40px -10px #fff;
+  background:  #AE66E7;
+  height: 10px;
+  width: 0;
+}
+
+
+</style>
     </div>
 
   </div>
